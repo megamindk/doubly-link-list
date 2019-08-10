@@ -56,9 +56,9 @@ void reverse1()
 	     temp=temp->next;
 	}
 	temp2=temp;
-	while(temp2!=NULL)
+	while(temp2->next!=NULL)
 	{
-		printf("%d->",temp->data);
+		printf("%d->",temp2->data);
 		temp2=temp2->prev;
 	}
  getch();
