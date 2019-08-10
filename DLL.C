@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
-#include<stdlib.h>
+#include<stdlib.h>//for free and malloc function
 struct node
 {
 	int data;
@@ -21,7 +21,7 @@ for(i=0;i<n;i++)
 	newnode->next=NULL;
 	newnode->prev=NULL;
 
-	if(root==NULL)
+	if(root==NULL)//checking if empty
 	{
 		root=newnode;
 	}
@@ -51,12 +51,12 @@ void display1()
 void reverse1()
 {
 	temp=root;
-	while(temp!=NULL)
+	while(temp->next!=NULL)//move till end node
 	{
 	     temp=temp->next;
 	}
 	temp2=temp;
-	while(temp2->next!=NULL)
+	while(temp2!=NULL)
 	{
 		printf("%d->",temp2->data);
 		temp2=temp2->prev;
@@ -70,14 +70,14 @@ void delete1()
 		temp=root;
 		printf("\nenter node number to be deleted");
 		scanf("%d",&loc);
-	while(i<loc-1)
+	while(i<loc-1)//move till one node before location
 	{
 		temp=temp->next;
 		i++;
 	}
-	dnode=temp->next;
-	temp->next=temp->next->next;
-	dnode->next->prev=temp;
+	dnode=temp->next;//assigning var to node to be deleted
+	temp->next=temp->next->next;//assignimg next to the rest nodes
+	dnode->next->prev=temp;//assigning previous to all previous nodes
 	free(dnode);
 }
 
